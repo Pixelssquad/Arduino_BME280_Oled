@@ -19,7 +19,7 @@ void setup() {
   Serial.begin(9600);
   Serial.println(F("BME280 Sensor event test"));
 
-  if (!bme.begin()) {
+  if (!bme.begin(0x76)) {    //0x76 is the address of my bme sensor, use i2c scanner to find
     Serial.println(F("Could not find a valid BME280 sensor, check wiring!"));
     while (1) delay(10);
   }
